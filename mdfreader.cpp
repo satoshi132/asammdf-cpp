@@ -1,18 +1,21 @@
 #include <iostream>
 #include <fstream>
+#include "src/Blocks/IdBlock.hpp"
 
 int main()
 {
-    std::string inputFile = "ASAP2_Demo_V171.mf4";
-    std::ifstream mdfFile(inputFile);
+    string inputFile = "ASAP2_Demo_V171.mf4";
+    ifstream mdfFile(inputFile);
     if(mdfFile.is_open())
     {
-        std::cout<< "File Opened Successfully"<< std::endl;
+        cout<< "File Opened Successfully"<< endl;
+        //Extracting Identification block info from mdf file
+        idBlock.GetIdentificationInfo(mdfFile);
         mdfFile.close();
     }
     else
     {
-        std::cerr << "Unable to open file" << std::endl ;
+        cerr << "Unable to open file" << endl ;
     }  
     return  0;
 } 
